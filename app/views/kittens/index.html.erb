@@ -1,0 +1,37 @@
+<h1 class="title">Create your own kitten!</h1>
+<p>What's not to love?</p>
+
+<center>
+<table>
+  <thread>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Cuteness</th>
+      <th>Softness</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thread>
+
+  <tbody>
+    <% @kittens.each do |k| %>
+      <tr>
+        <td><%= k.name %></td>
+        <td><%= k.age %></td>
+        <td><%= k.cuteness %></td>
+        <td><%= k.softness %></td>
+        <td><%= link_to "show", k %></td>
+        <td><%= link_to "edit", edit_kitten_path(k) %></td>
+        <td><%= link_to "abandon", k, method: :delete, data: { confirm: "You sure?"} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</center>
+
+<br>
+<br>
+
+<%= link_to "Adopt a new kitten", new_kitten_path %>

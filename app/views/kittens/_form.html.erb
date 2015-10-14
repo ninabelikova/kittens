@@ -1,0 +1,28 @@
+<%= form_for(@kitten) do |f| %>
+  <% if @kitten.errors.any? %>
+    <h2><%= pluralize(@kitten.errors.count, 'error') %> prevented this kitten from being updated:</h2>
+    <ul>
+      <%= @kitten.errors.full_messages.each do |m| %>
+        <li><%= m %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>  <br>
+  <%= f.label :age %>
+  <%= f.number_field :age %>
+  <br>  <br>
+  <%= f.label :cuteness %>
+  <%= f.number_field :cuteness %>
+  <br>  <br>
+  <%= f.label :softness %>
+  <%= f.number_field :softness %>
+  <br>  <br>
+  <br>  <br>
+  <div class="button">
+    <%= f.submit %>
+  </div>
+
+  <% end %>
